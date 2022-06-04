@@ -1,0 +1,35 @@
+@use "../sass/abstracts/variables";
+@use "../sass/abstracts/placeholders";
+
+.crypto-details-wrap {
+  margin-bottom: variables.$margin-large;
+
+  .coin-title {
+    font-size: 2em;
+    margin-bottom: variables.$margin-medium;
+  }
+
+  .row {
+    display: flex;
+    margin-bottom: variables.$margin-small;
+
+    .label-col {
+      font-weight: bold;
+      min-width: 100px;
+    }
+
+    .value-col {
+      flex: 1;
+    }
+  }
+}
+
+.chart-wrapper {
+  @extend %transparent-input;
+}
+
+.dark {
+  .chart-wrapper {
+    border: 1px solid variables.$medium-dark-grey;
+  }
+}

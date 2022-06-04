@@ -2,7 +2,9 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
   sidebarVisible: false,
-  filterText: ""
+  filterText: "",
+  rate: 1.0,
+  rateSymbol: "USD"
 };
 
 const slice = createSlice({
@@ -14,6 +16,10 @@ const slice = createSlice({
     },
     setFilterTerm(state, action) {
       state.filterText = action.payload;
+    },
+    setRate(state, action) {
+      state.rate = action.payload.rate;
+      state.rateSymbol = action.payload.rateSymbol;
     }
   }
 });

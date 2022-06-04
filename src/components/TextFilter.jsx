@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { sliceActions } from "../store/store";
 
@@ -11,13 +12,16 @@ const TextFilter = () => {
     clearTimeout(debounceTimer);
 
     debounceTimer = setTimeout((filterText) => {
-      console.log(filterText);
       dispatch(sliceActions.setFilterTerm(filterText));
     },
       DEBOUNCE_TIME,
       ev.target.value.trim()
     );
   };
+
+  useEffect(() => {
+    return () => dispatch(sliceActions.setFilterTerm(""));
+  }, [dispatch]);
 
   return (
     <div className="dv-filter">

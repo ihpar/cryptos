@@ -2,7 +2,7 @@
 
 .home-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.5fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "filt currency"

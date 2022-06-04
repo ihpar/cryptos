@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { sliceActions } from "../store/store";
 import axios from "axios";
 
 const CurrencyChanger = () => {
   const [exchangeRates, setExchangeRates] = useState([]);
-  const [selectedRate, setSelectedRate] = useState("USD");
+  const selectedRate = useSelector(state => state.rateSymbol);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("Fetching exchange rates");
@@ -29,10 +32,9 @@ const CurrencyChanger = () => {
 
   const selExchangeRateChangeHandler = (ev) => {
     const selectedSymbol = ev.target.value;
-    setSelectedRate(selectedSymbol);
     const conversionRateStr = exchangeRates.find(exRate => exRate.symbol === selectedSymbol).rateUsd;
     const conversionRate = parseFloat(conversionRateStr);
-    console.log(conversionRate, selectedSymbol);
+    dispatch(sliceActions.setRate({ rate: conversionRate, rateSymbol: selectedSymbol }));
   };
 
   return (
