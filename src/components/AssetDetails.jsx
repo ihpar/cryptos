@@ -1,8 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+} from "chart.js";
+
+import { Line } from "react-chartjs-2";
 
 import "./AssetDetails.scss";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+);
 
 const AssetDetails = () => {
   const { id: assetId } = useParams();
@@ -32,7 +48,7 @@ const AssetDetails = () => {
       }
     })
       .then(response => {
-        let dayArr = [];
+        const dayArr = [];
         const pricesArr = [];
 
         for (let history of response.data.data) {
@@ -41,14 +57,29 @@ const AssetDetails = () => {
           dayArr.push(dateStr);
           pricesArr.push(parseFloat(history.priceUsd));
         }
-
-        dayArr = dayArr.map((day, i) => i % 24 === 0 ? day : "");
-        setDays(dayArr);
-        setPrices(pricesArr);
+        setDays([...dayArr]);
+        setPrices([...pricesArr]);
       })
       .catch(err => console.log(err));
 
   }, [assetId]);
+
+  const chartData = {
+    labels: days,
+    datasets: [
+      {
+        data: prices,
+        fill: true,
+        backgroundColor: "rgba(75,192,192,0.2)",
+        borderColor: "rgba(75,192,192,1)"
+      }
+    ]
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false
+  };
 
   return (
     <div>
@@ -93,7 +124,9 @@ const AssetDetails = () => {
 
       {prices.length > 0 && (
         <div className="chart-wrapper">
-          {prices.map(price => <div key={price}>{price}</div>)}
+          <div className="chart-area">
+            <Line data={chartData} options={chartOptions} />
+          </div>
         </div>
       )}
 
