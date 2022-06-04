@@ -2,8 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import "./AssetsList.scss";
 import CoinListItem from "./CoinListItem";
+import Loading from "./utils/Loading";
+
+import "./AssetsList.scss";
 
 const LIST_LIMIT = 20;
 
@@ -57,10 +59,17 @@ const AssetsList = () => {
             exchangeSymbol={rateSymbol}
           />
         )}
+
+        {filterText && filterText.trim() !== "" && filteredCoins.length === 0 && (
+          <div className="no-crypto-found-wrapper">
+            No crypto currencies were found matching the search term: "{filterText}"
+          </div>
+        )}
+
       </div>
 
       {isLoading && (
-        <div className="div-loading">Loading...</div>
+        <Loading />
       )}
 
     </div>

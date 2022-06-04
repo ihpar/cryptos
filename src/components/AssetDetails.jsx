@@ -8,8 +8,9 @@ import {
   PointElement,
   LineElement,
 } from "chart.js";
-
 import { Line } from "react-chartjs-2";
+
+import Loading from "./utils/Loading";
 
 import "./AssetDetails.scss";
 
@@ -83,6 +84,10 @@ const AssetDetails = () => {
 
   return (
     <div>
+      {!cryptoDetails && (
+        <Loading />
+      )}
+
       {cryptoDetails && (
         <div className="crypto-details-wrap">
 
