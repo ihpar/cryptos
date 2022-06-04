@@ -1,0 +1,29 @@
+@use "../../sass/abstracts/variables";
+@use "../../sass/abstracts/placeholders";
+
+.filter-wrapper {
+  width: 100%;
+  margin: variables.$margin-medium 0;
+  display: flex;
+  gap: variables.$margin-medium;
+}
+
+.text-input,
+.select-currencies,
+.select-theme {
+  @extend %transparent-input;
+}
+
+.text-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.select-currencies,
+.select-theme {
+  padding: 17px;
+}
+
+.select-currencies {
+  width: 100%;
+}

@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import "./Sidebar.scss";
+
 const Sidebar = () => {
   const isNavVisible = useSelector(state => state.sidebarVisible);
 

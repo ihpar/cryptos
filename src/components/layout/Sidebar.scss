@@ -1,0 +1,32 @@
+@use "../../sass/abstracts/variables";
+
+.side-drawer {
+  li {
+    a {
+      display: block;
+      text-decoration: none;
+      padding: variables.$padding-medium;
+      text-align: center;
+      transition: opacity 200ms;
+      color: inherit;
+      background-color: variables.$light-blue;
+      border: 1px solid variables.$medium-light-blue;
+      border-radius: variables.$border-radius;
+      margin-bottom: variables.$margin-small;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+  }
+
+}
+
+.dark {
+  .side-drawer li a {
+    color: variables.$lighter-blue;
+    background-color: variables.$darker-blue;
+    border: 1px solid variables.$dark-blue;
+  }
+}

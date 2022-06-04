@@ -1,0 +1,39 @@
+@use "../sass/abstracts/variables";
+
+.crypto-list-item-link {
+  text-decoration: none;
+  color: inherit;
+
+  .crypto-list-item {
+    background-color: variables.$light-grey;
+    border: 1px solid variables.$medium-light-grey;
+    border-radius: variables.$border-radius;
+    padding: variables.$padding-medium;
+
+    display: flex;
+    flex-direction: row;
+
+    transition: background-color 200ms;
+
+    div {
+      flex: 1;
+    }
+  }
+
+  &:hover {
+    .crypto-list-item {
+      background-color: variables.$medium-light-grey;
+    }
+  }
+}
+
+.dark {
+  .crypto-list-item {
+    background-color: variables.$medium-darker-grey;
+    border: 1px solid variables.$medium-dark-grey;
+
+    &:hover {
+      background-color: variables.$medium-dark-grey;
+    }
+  }
+}

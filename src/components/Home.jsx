@@ -1,9 +1,16 @@
-const Home = () => {
+import TextFilter from "./TextFilter";
+import CurrencyChanger from "./CurrencyChanger";
+import AssetsList from "./AssetsList";
 
+import "./Home.scss";
+
+const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <div className="home-wrapper">
+      <TextFilter />
+      <CurrencyChanger />
+      <AssetsList />
+    </div >
   );
 };
 

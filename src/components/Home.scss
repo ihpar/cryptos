@@ -1,0 +1,47 @@
+@use "../sass/abstracts/variables" as *;
+
+.home-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "filt currency"
+    "list list";
+}
+
+.dv-filter {
+  grid-area: filt;
+  padding-right: 6px;
+}
+
+.dv-currency {
+  grid-area: currency;
+  padding-left: 6px;
+}
+
+.dv-list {
+  grid-area: list;
+}
+
+@media only screen and (max-width: $responsive-break-point) {
+  .home-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "filt"
+      "currency"
+      "list";
+  }
+
+  .dv-filter {
+    grid-area: filt;
+    padding: 0;
+  }
+
+  .dv-currency {
+    grid-area: currency;
+    padding: 0;
+    margin-top: 12px;
+  }
+}

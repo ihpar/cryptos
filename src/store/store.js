@@ -1,7 +1,8 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
-  sidebarVisible: false
+  sidebarVisible: false,
+  filterText: ""
 };
 
 const slice = createSlice({
@@ -10,6 +11,9 @@ const slice = createSlice({
   reducers: {
     toggleSidebar(state) {
       state.sidebarVisible = !state.sidebarVisible;
+    },
+    setFilterTerm(state, action) {
+      state.filterText = action.payload;
     }
   }
 });

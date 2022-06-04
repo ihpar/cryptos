@@ -1,0 +1,64 @@
+@use "../sass/abstracts/variables";
+@use "../sass/abstracts/placeholders";
+
+.dv-list {
+  margin-top: variables.$margin-medium;
+}
+
+.crypto-list {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$margin-small;
+  margin-bottom: variables.$margin-small;
+}
+
+.no-crypto-found-wrapper {
+  background-color: variables.$light-grey-disabled;
+  border: 1px solid variables.$medium-light-grey-disabled;
+  border-radius: variables.$border-radius;
+  padding: variables.$padding-medium;
+}
+
+.dark {
+  .no-crypto-found-wrapper {
+    background-color: variables.$medium-darker-grey-disabled;
+    border: 1px solid variables.$medium-dark-grey-disabled;
+    color: variables.$font-color-light-disabled;
+  }
+}
+
+@keyframes blink {
+  0% {
+    background-color: variables.$lighter-blue;
+  }
+
+  100% {
+    background-color: variables.$medium-light-blue;
+  }
+}
+
+@keyframes blink-dark {
+  0% {
+    background-color: variables.$dark-blue;
+  }
+
+  100% {
+    background-color: variables.$darker-blue;
+  }
+}
+
+.div-loading {
+  @extend %transparent-input;
+  text-align: center;
+  padding: variables;
+  margin-bottom: variables.$margin-small;
+  animation: blink 500ms infinite;
+  animation-direction: alternate;
+}
+
+.dark {
+  .div-loading {
+    animation: blink-dark 500ms infinite;
+    animation-direction: alternate;
+  }
+}
