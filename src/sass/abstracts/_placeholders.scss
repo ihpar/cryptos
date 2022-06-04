@@ -1,0 +1,15 @@
+@use "variables";
+
+%shadowed-element {
+  box-shadow: 0 0 14px -12px variables.$dark-grey;
+}
+
+%transparent-input {
+  background-color: transparent;
+  padding: variables.$padding-medium;
+  border: 1px solid variables.$medium-light-grey;
+  border-radius: variables.$border-radius;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
