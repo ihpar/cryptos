@@ -50,7 +50,7 @@ node-rest-api     latest    some_image_id_2   ...
 ## About the App
 This application has the following features complying with the assignment requirements doc:
 - It is responsive (try resizing the browser's width to see UI changes)
-![Home light web](demo/home_light_web.jpg)
+![Home light web](ui_demo_images/home_light_web.jpg)
 - It has light and dark modes
 - It has a sidebar asd...
 
