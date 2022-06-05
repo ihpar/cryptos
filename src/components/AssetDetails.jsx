@@ -30,9 +30,12 @@ const AssetDetails = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://api.coincap.io/v2/assets/${assetId}`
+      url: `http://127.0.0.1:8000/asset/${assetId}`
     })
-      .then(response => setCryptoDetails(response.data.data)
+      .then(response => {
+        console.log(response);
+        setCryptoDetails(response.data.data);
+      }
       )
       .catch(err => console.log(err));
 
@@ -79,14 +82,19 @@ const AssetDetails = () => {
 
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }
+    }
   };
 
   return (
     <div>
-      {!cryptoDetails && (
-        <Loading />
-      )}
+      {!cryptoDetails && <Loading />}
 
       {cryptoDetails && (
         <div className="crypto-details-wrap">

@@ -6,10 +6,13 @@
 }
 
 .crypto-list {
+  margin-bottom: variables.$margin-small;
+}
+
+.infinite-scroll-component {
   display: flex;
   flex-direction: column;
   gap: variables.$margin-small;
-  margin-bottom: variables.$margin-small;
 }
 
 .no-crypto-found-wrapper {
